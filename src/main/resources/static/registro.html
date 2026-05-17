@@ -25,9 +25,9 @@
 <div class="card shadow-lg p-4 login-card">
     <div class="card-body">
 
-        <h2 class="text-center mb-4">Iniciar Sesión</h2>
+        <h2 class="text-center mb-4">Registro Usuario</h2>
 
-        <form action="/login" method="post">
+        <form action="/registro" method="post">
 
             <div class="mb-3">
                 <label class="form-label">Usuario</label>
@@ -41,13 +41,13 @@
 
             <div class="d-grid">
                 <button type="submit" class="btn btn-primary">
-                    Ingresar
+                    Registrarme
                 </button>
             </div>
 
         </form>
         <p th:text="${error}"></p>
-        <a href="/registro.html">Registrarme</a>
+        <a href="/">Ya tengo cuenta</a>
     </div>
 </div>
 

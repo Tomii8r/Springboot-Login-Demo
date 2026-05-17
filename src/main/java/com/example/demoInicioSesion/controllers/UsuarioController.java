@@ -3,6 +3,7 @@ package com.example.demoInicioSesion.controllers;
 import com.example.demoInicioSesion.dao.UsuarioDao;
 import com.example.demoInicioSesion.models.Usuario;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
@@ -34,6 +35,14 @@ public class UsuarioController {
 
         model.addAttribute("error", "Contraseña incorrecta");
         return "index";
+    }
+
+    @PostMapping("/registro")
+    public String registrarUsuario(Usuario usuario) {
+
+        usuarioDao.save(usuario);
+
+        return "redirect:/";
     }
 
 }
