@@ -46,7 +46,7 @@
             </div>
 
         </form>
-        <p th:text="${error}"></p>
+        <p th:if="${estado}" th:text="${estado}"></p>
         <a href="/">Ya tengo cuenta</a>
     </div>
 </div>
