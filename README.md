@@ -1,31 +1,39 @@
 # Spring Boot Login Demo
 
-Proyecto simple de inicio de sesión y registro de usuarios realizado con:
-
-- Java
-- Spring Boot
-- Spring Data JPA
-- MySQL
-- HTML
-- Bootstrap
-
-## Funcionalidades
-
-- Registro de usuarios
-- Inicio de sesión
-- Validación de credenciales
-- Conexión a base de datos MySQL
-- Interfaz simple con Bootstrap
+Proyecto simple de autenticación de usuarios desarrollado con Spring Boot y Spring Security.
 
 ## Tecnologías utilizadas
 
 - Java 21+
 - Spring Boot
+- Spring Security
 - Spring MVC
 - Spring Data JPA
 - MySQL
 - Maven
+- HTML5
 - Bootstrap 5
+
+## Funcionalidades
+
+- Registro de usuarios
+- Inicio de sesión seguro
+- Hasheo de contraseñas con BCrypt
+- Validación de credenciales
+- Protección de rutas con Spring Security
+- Persistencia de usuarios en MySQL
+- Interfaz responsive con Bootstrap
+
+## Seguridad implementada
+
+El proyecto utiliza Spring Security para:
+
+- Autenticación de usuarios
+- Protección de endpoints
+- Manejo de sesiones
+- Encriptación segura de contraseñas mediante BCryptPasswordEncoder
+
+Las contraseñas nunca se almacenan en texto plano en la base de datos.
 
 ## Configuración de la base de datos
 
@@ -54,19 +62,19 @@ Clonar el repositorio:
 git clone https://github.com/Tomii8r/Springboot-Login-Demo.git
 ```
 
-Entrar a la carpeta:
+Entrar a la carpeta del proyecto:
 
 ```bash
 cd Springboot-Login-Demo
 ```
 
-Ejecutar el proyecto:
+Ejecutar la aplicación:
 
 ```bash
 ./mvnw spring-boot:run
 ```
 
-o desde IntelliJ IDEA ejecutando la clase principal.
+o ejecutar la clase principal desde IntelliJ IDEA.
 
 ## Estructura del proyecto
 
@@ -74,6 +82,7 @@ o desde IntelliJ IDEA ejecutando la clase principal.
 src
  ├── main
  │   ├── java
+ │   │   ├── config
  │   │   ├── controller
  │   │   ├── model
  │   │   ├── repository
@@ -86,9 +95,10 @@ src
 
 ## Capturas
 
-- Pantalla de login
-- Pantalla de registro
-- Conexión a MySQL
+- Login de usuario
+- Registro de usuario
+- Validaciones de autenticación
+- Persistencia en MySQL
 
 ## Autor
 

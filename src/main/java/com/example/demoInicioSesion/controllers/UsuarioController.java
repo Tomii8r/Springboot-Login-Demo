@@ -2,6 +2,8 @@ package com.example.demoInicioSesion.controllers;
 
 import com.example.demoInicioSesion.dao.UsuarioDao;
 import com.example.demoInicioSesion.models.Usuario;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,13 +16,17 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class UsuarioController {
 
-    private UsuarioDao usuarioDao;
+    private final UsuarioDao usuarioDao;
 
-    public UsuarioController(UsuarioDao usuarioDao) {
+    private final PasswordEncoder passwordEncoder;
+
+
+    public UsuarioController(UsuarioDao usuarioDao, PasswordEncoder passwordEncoder) {
         this.usuarioDao = usuarioDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    @RequestMapping("/login")
+    @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password, Model model){
         Usuario usuario = usuarioDao.findByUsername(username);
         System.out.println(username);
@@ -31,8 +37,8 @@ public class UsuarioController {
             return "index";
             }
 
-        if(usuario.getPassword().equals(password)){
-            return "redirect:/sucess.html";
+        if(passwordEncoder.matches(password, usuario.getPassword())){
+            return "redirect:/success.html";
         }
 
         model.addAttribute("error", "Contraseña incorrecta");
@@ -65,6 +71,10 @@ public class UsuarioController {
             redirectAttributes.addFlashAttribute("estado","La contraseña debe contenar una mayuscula y al menos un caracter especial");
             return "redirect:/registro";
         }
+
+        String passwordHasheada = passwordEncoder.encode(usuario.getPassword());
+        usuario.setPassword(passwordHasheada);
+
 
         usuarioDao.save(usuario);
 
