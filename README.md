@@ -1,6 +1,6 @@
 # Spring Boot Login Demo
 
-Proyecto simple de autenticación de usuarios desarrollado con Spring Boot y Spring Security.
+Sistema de autenticación de usuarios desarrollado con Spring Boot y Spring Security.
 
 ## Tecnologías utilizadas
 
@@ -18,9 +18,10 @@ Proyecto simple de autenticación de usuarios desarrollado con Spring Boot y Spr
 
 - Registro de usuarios
 - Inicio de sesión seguro
+- Autenticación con Spring Security
 - Hasheo de contraseñas con BCrypt
-- Validación de credenciales
-- Protección de rutas con Spring Security
+- Protección de rutas privadas
+- Manejo de sesiones
 - Persistencia de usuarios en MySQL
 - Interfaz responsive con Bootstrap
 
@@ -28,12 +29,30 @@ Proyecto simple de autenticación de usuarios desarrollado con Spring Boot y Spr
 
 El proyecto utiliza Spring Security para:
 
-- Autenticación de usuarios
-- Protección de endpoints
+- Autenticación automática de usuarios
 - Manejo de sesiones
-- Encriptación segura de contraseñas mediante BCryptPasswordEncoder
+- Protección de endpoints
+- Validación segura de credenciales
+- Encriptación de contraseñas mediante BCryptPasswordEncoder
 
-Las contraseñas nunca se almacenan en texto plano en la base de datos.
+Las contraseñas se almacenan hasheadas y nunca en texto plano.
+
+## Arquitectura de autenticación
+
+El flujo de autenticación funciona mediante:
+
+- `SecurityFilterChain`
+- `CustomUserDetailsService`
+- `DaoAuthenticationProvider`
+- `BCryptPasswordEncoder`
+
+Spring Security se encarga automáticamente de:
+
+- Procesar el login
+- Validar usuarios
+- Comparar contraseñas
+- Gestionar sesiones
+- Restringir acceso a rutas protegidas
 
 ## Configuración de la base de datos
 
@@ -83,9 +102,9 @@ src
  ├── main
  │   ├── java
  │   │   ├── config
- │   │   ├── controller
- │   │   ├── model
- │   │   ├── repository
+ │   │   ├── controllers
+ │   │   ├── dao
+ │   │   ├── models
  │   │   └── service
  │   └── resources
  │       ├── static
@@ -95,8 +114,8 @@ src
 
 ## Capturas
 
-- Login de usuario
-- Registro de usuario
+- Pantalla de login
+- Registro de usuarios
 - Validaciones de autenticación
 - Persistencia en MySQL
 

@@ -27,7 +27,7 @@
 
         <h2 class="text-center mb-4">Iniciar Sesión</h2>
 
-        <form action="/login" method="post">
+        <form method="post" action="/login">
 
             <div class="mb-3">
                 <label class="form-label">Usuario</label>
@@ -46,7 +46,7 @@
             </div>
 
         </form>
-        <p th:text="${error}"></p>
+        <p th:if="${error}" th:text="${error}"></p>
         <a href="/registro">Registrarme</a>
     </div>
 </div>

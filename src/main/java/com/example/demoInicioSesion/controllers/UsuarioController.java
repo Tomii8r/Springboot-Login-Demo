@@ -26,23 +26,21 @@ public class UsuarioController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password, Model model){
-        Usuario usuario = usuarioDao.findByUsername(username);
-        System.out.println(username);
-
-
-        if(usuario ==null){
-            model.addAttribute("error", "Usuario no existe");
-            return "index";
-            }
-
-        if(passwordEncoder.matches(password, usuario.getPassword())){
-            return "redirect:/success.html";
+    @GetMapping("/")
+    public String mostrarLogin(@RequestParam(required = false) String error, Model model) {
+        if(error != null){
+            model.addAttribute(
+                    "error",
+                    "Usuario o contraseña incorrectos"
+            );
         }
 
-        model.addAttribute("error", "Contraseña incorrecta");
         return "index";
+    }
+
+    @GetMapping("/success")
+    public String success() {
+        return "success";
     }
 
     @PostMapping("/registro")
