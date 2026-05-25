@@ -39,8 +39,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/success")
-    public String success() {
-        return "success";
+    public String success() {return "success";
     }
 
     @PostMapping("/registro")
