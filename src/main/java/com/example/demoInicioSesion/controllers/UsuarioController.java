@@ -3,6 +3,7 @@ package com.example.demoInicioSesion.controllers;
 import com.example.demoInicioSesion.dao.UsuarioDao;
 import com.example.demoInicioSesion.models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,7 +40,9 @@ public class UsuarioController {
     }
 
     @GetMapping("/success")
-    public String success() {return "success";
+    public String success(Model model, Authentication authentication) {
+        model.addAttribute("saludo", "Hola "+ authentication.getName());
+        return "success";
     }
 
     @PostMapping("/registro")

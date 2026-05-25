@@ -22,6 +22,8 @@
 <body class="d-flex justify-content-center align-items-center">
 
 <div class="card shadow-lg p-5 text-center success-card">
+    <p th:if="${saludo}" th:text="${saludo}"></p>
+
     <h1 class="text-success mb-3">✔</h1>
 
     <h2>Felicitaciones</h2>
