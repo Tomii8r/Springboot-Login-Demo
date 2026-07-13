@@ -21,13 +21,16 @@ public class Usuario {
     private String username;
     @Getter @Setter @Column(name="password")
     private String password;
+    @Getter @Setter @Column(name="rol")
+    private String rol;
 
     public Usuario() {
     }
 
-    public Usuario(int id, String username, String password) {
+    public Usuario(int id, String username, String password, String rol) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.rol= rol;
     }
 }

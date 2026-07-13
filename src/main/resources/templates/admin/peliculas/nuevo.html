@@ -1,0 +1,47 @@
+<form
+        th:action="@{/admin/pelicula/guardar}"
+        method="post"
+        enctype="multipart/form-data">
+
+    <label>Título</label>
+
+    <input
+            type="text"
+            name="titulo"
+            required>
+
+    <label>Descripción</label>
+
+    <textarea
+            name="descripcion"
+            required>
+    </textarea>
+
+    <label>Precio</label>
+
+    <input
+            type="number"
+            step="0.01"
+            name="precio"
+            required>
+
+    <label>Stock</label>
+
+    <input
+            type="number"
+            name="stock"
+            required>
+
+    <label>Imagen</label>
+
+    <input
+            type="file"
+            name="imagen"
+            accept="image/*"
+            required>
+
+    <button type="submit">
+        Guardar Producto
+    </button>
+
+</form>

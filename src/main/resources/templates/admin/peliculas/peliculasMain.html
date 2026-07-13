@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SpringBuster - Productos</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#071f60;
+            color:white;
+            min-height:100vh;
+        }
+
+        header{
+            background:#002d72;
+            border-bottom:4px solid #ffd100;
+            padding:20px;
+        }
+
+        header h1{
+            color:#ffd100;
+        }
+
+        .container{
+            width:90%;
+            margin:30px auto;
+        }
+
+        .actions{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:25px;
+        }
+
+        .search-box input{
+            padding:10px;
+            width:300px;
+            border:none;
+            border-radius:5px;
+        }
+
+        .btn{
+            background:#ffd100;
+            color:#002d72;
+            text-decoration:none;
+            padding:10px 18px;
+            border-radius:6px;
+            font-weight:bold;
+        }
+
+        .btn:hover{
+            opacity:.9;
+        }
+
+        .table-container{
+            background:#002d72;
+            border:3px solid #ffd100;
+            border-radius:12px;
+            overflow:hidden;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#ffd100;
+            color:#002d72;
+            padding:15px;
+        }
+
+        td{
+            padding:15px;
+            border-top:1px solid rgba(255,255,255,.2);
+        }
+
+        tr:hover{
+            background:rgba(255,255,255,.05);
+        }
+
+        .action-btn{
+            padding:8px 12px;
+            border-radius:5px;
+            text-decoration:none;
+            font-size:.9rem;
+            font-weight:bold;
+        }
+
+        .edit{
+            background:#ffd100;
+            color:#002d72;
+        }
+
+        .delete{
+            background:#d62828;
+            color:white;
+        }
+
+        .bottom-actions{
+            margin-top:25px;
+            display:flex;
+            justify-content:space-between;
+        }
+
+        .stats{
+            margin-top:30px;
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:20px;
+        }
+
+        .card{
+            background:#002d72;
+            border:3px solid #ffd100;
+            border-radius:12px;
+            padding:20px;
+        }
+
+        .card h3{
+            color:#ffd100;
+            margin-bottom:10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>SPRINGBUSTER ADMIN - PRODUCTOS</h1>
+</header>
+
+<div class="container">
+
+    <div class="actions">
+
+        <div class="search-box">
+            <input type="text" placeholder="Buscar producto...">
+        </div>
+
+        <a href="#" class="btn">
+            + Nuevo Producto
+        </a>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr>
+                <td>1</td>
+                <td>Back to the Future</td>
+                <td>$24.99</td>
+                <td>12</td>
+                <td>backfuture.jpg</td>
+                <td>
+                    <a href="#" class="action-btn edit">
+                        Editar
+                    </a>
+
+                    <a href="#" class="action-btn delete">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Terminator 2</td>
+                <td>$29.99</td>
+                <td>8</td>
+                <td>terminator.jpg</td>
+                <td>
+                    <a href="#" class="action-btn edit">
+                        Editar
+                    </a>
+
+                    <a href="#" class="action-btn delete">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="stats">
+
+        <div class="card">
+            <h3>Total Productos</h3>
+            <p>0</p>
+        </div>
+
+        <div class="card">
+            <h3>Stock Total</h3>
+            <p>0</p>
+        </div>
+
+        <div class="card">
+            <h3>Productos Agotados</h3>
+            <p>0</p>
+        </div>
+
+    </div>
+
+    <div class="bottom-actions">
+
+        <a href="/admin/dashboard" class="btn">
+            ← Volver al Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

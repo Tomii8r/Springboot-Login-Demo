@@ -2,13 +2,11 @@ package com.example.demoInicioSesion.controllers;
 
 import com.example.demoInicioSesion.dao.UsuarioDao;
 import com.example.demoInicioSesion.models.Usuario;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -39,10 +37,10 @@ public class UsuarioController {
         return "index";
     }
 
-    @GetMapping("/success")
+    @GetMapping("/catalogo")
     public String success(Model model, Authentication authentication) {
         model.addAttribute("saludo", "Hola "+ authentication.getName());
-        return "success";
+        return "catalogo";
     }
 
     @PostMapping("/registro")
@@ -75,7 +73,7 @@ public class UsuarioController {
         String passwordHasheada = passwordEncoder.encode(usuario.getPassword());
         usuario.setPassword(passwordHasheada);
 
-
+        usuario.setRol("USER");
         usuarioDao.save(usuario);
 
         redirectAttributes.addFlashAttribute("estado", "Usuario registrado con éxito");
